@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "fair-fl"
+version = "0.1.0"
+description = "Fair Federated Learning for Network Optimization"
+authors = ["eweland <andreas.welander@ericsson.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+torch = "^1.13.0"
+tqdm = "^4.65.0"
+flwr = "^1.3.0"
+
+[tool.poetry.group.dev.dependencies]
+numpy = "^1.24.2"
+pandas = "^2.0.0"
+matplotlib = "^3.7.1"
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

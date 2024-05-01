@@ -1,0 +1,32 @@
+-   "display_name": "flower-pytorch-notebook"
+    "default": False
+    "kubespawner_override":
+        "image": "registry.ailab.rnd.ki.sw.ericsson.se/fair-ai/main/fair-fl/flwr-torch-notebook:latest"
+        "cpu_limit": 8
+        "cpu_guarantee": 8
+        "mem_limit": "64G"
+        "mem_guarantee": "64G"
+        "image_pull_secrets":
+        - "name": "fair-fl-token"
+    "description": "
+        <ul>
+            <li>Everything in jupyter/scipy-notebook and its ancestor images</li>
+            <li>flwr, torch</li>
+        </ul>"
+
+
+-   "display_name": "gymnasium-notebook"
+    "default": False
+    "kubespawner_override":
+        "image": "registry.ailab.rnd.ki.sw.ericsson.se/fair-ai/main/fair-fl/gymnasium-notebook:latest"
+        "cpu_limit": 8
+        "cpu_guarantee": 8
+        "mem_limit": "32G"
+        "mem_guarantee": "32G"
+        "image_pull_secrets":
+        - "name": "fair-fl-token"
+    "description": "
+        <ul>
+            <li>Everything in jupyter/scipy-notebook and its ancestor images</li>
+            <li>OpenAI gymnasium for RL</li>
+        </ul>"

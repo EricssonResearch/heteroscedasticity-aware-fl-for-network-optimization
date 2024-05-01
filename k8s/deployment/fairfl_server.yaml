@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fairfl-server-service
+  labels:
+    app: fairfl-server
+spec:
+  selector:
+    app: fairfl-server
+  ports:
+  - port: 8080
+    targetPort: server-port
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fairfl-server-deployment
+  labels:
+    app: fairfl-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fairfl-server
+  template:
+    metadata:
+      name: fairfl-server-pod
+      labels:
+        project: fair-ai
+        app: fairfl-server
+    spec:
+      containers:
+      - name: fairfl-server-container
+        image: registry.ailab.rnd.ki.sw.ericsson.se/fair-ai/main/fair-fl/fairfl:cpu
+        envFrom:
+        - configMapRef:
+            name: fairfl-config
+        command: ["python", "run_server.py"]
+        ports:
+        - name: server-port
+          containerPort: 8080
+        resources:
+          requests:
+            memory: "16Gi"
+            cpu: "4"
+          limits:
+            memory: "16Gi"
+            cpu: "4"
+      imagePullSecrets:
+      - name: fair-fl-token

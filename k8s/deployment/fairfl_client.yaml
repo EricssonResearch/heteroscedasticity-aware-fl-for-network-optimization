@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fairfl-client-job
+spec:
+  completions: 8
+  parallelism: 8
+  completionMode: Indexed
+  template:
+    metadata:
+      name: fairfl-client-pod
+      labels:
+        project: fair-ai
+        ailab-job-type: batch
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: fairfl-client-container
+        image: registry.ailab.rnd.ki.sw.ericsson.se/fair-ai/main/fair-fl/fairfl:cpu
+        envFrom:
+        - configMapRef:
+            name: fairfl-config
+        command: ["python", "run_client.py"]
+        resources:
+          requests:
+            memory: "32Gi"
+            cpu: "8"
+          limits:
+            memory: "32Gi"
+            cpu: "8"
+      imagePullSecrets:
+      - name: fair-fl-token

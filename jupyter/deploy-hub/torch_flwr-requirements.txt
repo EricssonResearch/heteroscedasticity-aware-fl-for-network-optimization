@@ -1,0 +1,4 @@
+flwr[simulation]
+torch
+torchvision
+torchaudio
