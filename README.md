@@ -29,3 +29,18 @@ Use the `deploy_fairfl.py` script to run experiments using different simulations
 ## Viewing results
 
 To get a summary of the experiment results, use the notebook `describe_experiments.ipynb` in the `jupyter` directory.
+
+
+## Cite this work
+
+```tex
+ @masterthesis{Welander_2024, 
+    title={Fair and Efficient Federated Learning for Network Optimization with Heteroscedastic Data}, 
+    url={https://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-531747}, 
+    author={Welander, Andreas}, 
+    year={2024},
+    month = {June},
+    school = {Uppsala University},
+    type = {Master's thesis}
+}
+```
